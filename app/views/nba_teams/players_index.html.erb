@@ -1,0 +1,6 @@
+<h1>Players of the <%=@nba_team.name %></h1>
+<% @players.each do |player| %>
+    <h2><%= player.name %></h2>
+    <p>Jersey Number: <%= player.player_number %></p>
+    <p><%= "Is #{player.starting_player ? "a" : "not a"} starting player." %></p>
+<% end %>
