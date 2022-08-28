@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe '/players' do
+RSpec.describe '/players/:player_id' do
     before :each do
         @lakers = NbaTeam.create!(name: "Los Angeles Lakers", championship_wins: 17, western_conference: true)
         @lebron = Player.create!(name: "LeBron James", player_number: 6, starting_player: true, nba_team_id:@lakers.id)
@@ -12,11 +12,11 @@ RSpec.describe '/players' do
 
     end
 
-    it 'displays the attributes of given team id' do
-        visit "/players"
+    it 'displays the attributes of a given player' do
+        visit "/players/#{@lebron.id}"
+        save_and_open_page
         expect(page).to have_content(@lebron.name)
-        expect(page).to have_content(@anthony.player_number)
-        expect(page).to have_content("Is not a starting player.")
-        expect(page).to have_content(@paul.player_number)
+        expect(page).to have_content(@lebron.player_number)
+        expect(page).to have_content("Is a starting player.")
     end
 end
