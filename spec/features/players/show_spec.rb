@@ -14,7 +14,6 @@ RSpec.describe '/players/:player_id' do
 
     it 'displays the attributes of a given player' do
         visit "/players/#{@lebron.id}"
-        save_and_open_page
         expect(page).to have_content(@lebron.name)
         expect(page).to have_content(@lebron.player_number)
         expect(page).to have_content("Is a starting player.")

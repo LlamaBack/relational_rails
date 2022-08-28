@@ -1,6 +1,6 @@
 class NbaTeamsController < ApplicationController
     def index
-        @nba_teams = NbaTeam.all
+        @nba_teams = NbaTeam.order(created_at: :desc)
     end
 
     def show
