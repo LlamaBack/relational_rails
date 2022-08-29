@@ -20,8 +20,8 @@ RSpec.describe '/nba_teams/:id page' do
 
     it 'displays the number of players of that respective team' do
         visit "/nba_teams/#{@lakers.id}"
-        expect(page).to have_content(@lakers.player_count)
+        expect(page).to have_content(@lakers.players_count)
         visit "/nba_teams/#{@clippers.id}"
-        expect(page).to have_content(@lakers.player_count)
+        expect(page).to have_content(@clippers.players_count)
     end
 end
