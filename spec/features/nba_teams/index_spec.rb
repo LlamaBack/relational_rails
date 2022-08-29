@@ -20,7 +20,7 @@ RSpec.describe '/nba_teams page' do
         sleep(1)
         clippers = NbaTeam.create!(name: "Los Angeles Clippers", championship_wins: 0, western_conference: true)
         visit "/nba_teams"
-        save_and_open_page
+        # save_and_open_page
         expect(page).to have_content(@lakers.created_at)
         expect(page).to have_content(@clippers.created_at)
         expect("#{clippers.name}").to appear_before("#{bucks.name}")
