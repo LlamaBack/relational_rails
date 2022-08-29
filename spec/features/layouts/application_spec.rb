@@ -31,7 +31,7 @@ RSpec.describe 'displays info necessary for every page' do
         expect(current_path).to eq("/players")
   
         visit("/players/#{@lebron.id}")
-        save_and_open_page
+        # save_and_open_page
         expect(page).to have_content "NBA Teams Index"
         expect(page).to have_content "Players Index"
         click_link("Players Index")

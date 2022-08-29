@@ -24,4 +24,12 @@ RSpec.describe '/nba_teams/:id page' do
         visit "/nba_teams/#{@clippers.id}"
         expect(page).to have_content(@clippers.players_count)
     end
+
+    it 'gives a link to the players index of that team' do
+        visit "/nba_teams/#{@lakers.id}"
+        expect(page).to have_content("List of Players")
+        save_and_open_page
+        click_link("List of Players")
+        expect(current_path).to eq("/nba_teams/#{@lakers.id}/players")
+    end
 end
